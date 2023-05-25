@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+MAINTAINER sindhu
+WORKDIR /home/ubuntu
+RUN apt-get update -y
+RUN apt-get install apache2 -y
+RUN apt-get install git -y
+RUN rm /var/www/html/*
+RUN git clone https://github.com/kishore18111997/website
+RUN cp /home/ubuntu/website/website.html /var/www/html/
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]

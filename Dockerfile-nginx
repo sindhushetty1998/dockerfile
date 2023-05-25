@@ -1,0 +1,6 @@
+FROM ubuntu:latest
+MAINTAINER sindhu
+WORKDIR /home/ubuntu
+RUN apt-get update -y && apt-get update && apt-get install nginx -y
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
